@@ -1,0 +1,35 @@
+Develop a smart contract that enables users to perform token swaps between tokenA and tokenB in both direction, using the Constant Product Market Marker(CPMM). 
+Formula (X * Y =K) to calculate the exchange rate for each swap. Additionally, implement functionalities that allow users to provide liquidity to and withdraw liquidity from the pool (liquidity providers must contribute both tokenA and tokenB). The contract should also include various view functions.
+
+A portion of the code below: not compulsory you and the below code to your
+
+
+
+
+
+(A+a)* (B+b) = K (CPPM Formula)
+
+// Swapping for Token B
+B-(K/A+a)=b 
+
+// Swapping for Token A
+A-(K/B+b)=a
+
+
+
+atleast 2 view functions
+reserve = k 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Hint: First Create your tokenA and tokenB
