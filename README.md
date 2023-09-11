@@ -5,9 +5,14 @@
 A smart contract that enables users to perform token swaps between tokenA and tokenB in both direction and uses the Constant Product Market Marker(CPMM), formula (X \* Y = K) to calculate the exchange rate for each swap.
 It has functions that allows users to:
 
-- AddLiquidity to the Pool.
-- RemoveLiquidity from the Pool
-- SwapTokens
+- AddLiquidity to the Pool, addLiquidity()
+- RemoveLiquidity from the Pool, removeLiquidity()
+- SwapTokens, swapTokens()
+- Calculates the rate of TokenA For TokenB using the Constant Product Market Marker(CPMM), calculateRateOf_TokenA_For_TokenB()
+- Calculates the rate of TokenB For TokenA using the Constant Product Market Marker(CPMM), calculateRateOf_TokenB_For_TokenA()
+- Gets the Liquidity reserve of TokenA, getReserveA()
+- Gets the Liquidity reserve of TokenB, getReserveB()
+- Gets the reserve for each liquidity Provider using their address as key in the mapping, getLiquidityProvider()
 
 - TokenAContractAddress:
   https://sepolia.etherscan.io/token/0x8646Ae354bAfd642d1269b132685f8e05bb3401e
