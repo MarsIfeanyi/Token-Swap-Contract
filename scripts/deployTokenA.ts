@@ -7,7 +7,7 @@ async function main() {
   console.log("=========Deploying TokenAContract================");
 
   // await tokenAContract.waitForDeployment();
-  console.log(`tokenAContract deployed to: ${tokenAContract.target}`); // 0x4ad4a2a47fb6089D395bF5A4876972AE70bfC0d2
+  console.log(`tokenAContract deployed to: ${tokenAContract.target}`); // 0x8646Ae354bAfd642d1269b132685f8e05bb3401e
 
   // if (
   //   network.config.chainId === 11155111 ||
