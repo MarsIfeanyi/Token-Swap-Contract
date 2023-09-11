@@ -18,10 +18,22 @@ contract TokenBContract is ERC20 {
         _mint(msg.sender, 2_000_000e18);
     }
 
+    /**
+     * @param to: address of the receiver(msg.sender)
+     * @param amount: amount to mint
+     *
+     * @dev mints the receipt token to a user upon successful deposits or addition of liquidity to the pool
+     */
     function mintToken(address to, uint256 amount) external onlyOwner {
         _mint(to, amount);
     }
 
+    /**
+     * @param to: address of the receiver(msg.sender)
+     * @param amount: amount to mint
+     *
+     * @dev burns the receipt token from the  user upon successful withdrawal or removal of liquidity from the pool
+     */
     function burnToken(address to, uint256 amount) external onlyOwner {
         _burn(to, amount);
     }
