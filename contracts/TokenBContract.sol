@@ -12,10 +12,10 @@ contract TokenBContract is ERC20 {
         _;
     }
 
-    constructor() ERC20("TokenAContract", "TAC") {
+    constructor() ERC20("TokenBContract", "TBC") {
         owner = msg.sender;
 
-        _mint(msg.sender, 10000e18);
+        _mint(msg.sender, 2_000_000e18);
     }
 
     function mintToken(address to, uint256 amount) external onlyOwner {
