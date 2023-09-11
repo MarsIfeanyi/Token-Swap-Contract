@@ -7,19 +7,19 @@ async function main() {
   console.log("===========Deploying TokenBContract================");
   await tokenBContract.waitForDeployment();
 
-  console.log(`tokenBContract deployed to: ${tokenBContract.target}`); // 0xa153cc477c9cead51eff68fe612606b35f55f49d;
+  console.log(`tokenBContract deployed to: ${tokenBContract.target}`); // 0xB6e41410b3A58062177547684073e19E8d5b5B74;
 
-  //   if (
-  //     network.config.chainId === 11155111 ||
-  //     (5 && process.env.ETHERSCAN_API_KEY)
-  //   ) {
-  //     console.log("Waiting for block confirmations...");
+  if (
+    network.config.chainId === 11155111 ||
+    (5 && process.env.ETHERSCAN_API_KEY)
+  ) {
+    console.log("Waiting for block confirmations...");
 
-  //     //wait for 6 block confirmations before verifying the transaction
-
-  //     await tokenBContract.waitForDeployment();
-  //     await verify(tokenBContract.target, []);
-  //   }
+    //wait for 10 block confirmations before verifying the transaction
+    // @ts-ignore
+    await tokenBContract.waitForDeployment(10);
+    await verify(tokenBContract.target, []);
+  }
 }
 
 main().catch((error) => {
