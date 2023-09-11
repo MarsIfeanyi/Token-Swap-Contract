@@ -1,10 +1,19 @@
 # Token Swap Contract
 
+## Description:
+
+A smart contract that enables users to perform token swaps between tokenA and tokenB in both direction and uses the Constant Product Market Marker(CPMM), formula (X \* Y = K) to calculate the exchange rate for each swap.
+It has functions that allows users to:
+
+- AddLiquidity to the Pool.
+- RemoveLiquidity from the Pool
+- SwapTokens
+
 - TokenAContractAddress:
-  https://sepolia.etherscan.io/address/0xEF7BAeBE378C26471166c3c1F76F59a25c464Cc4#code
+  https://sepolia.etherscan.io/token/0x8646Ae354bAfd642d1269b132685f8e05bb3401e
 
 - TokenBContractAddress:
-  0xa153cc477c9cead51eff68fe612606b35f55f49d
+  https://sepolia.etherscan.io/token/0xB6e41410b3A58062177547684073e19E8d5b5B74
 
 - TokenSwapContractAddress:
-  https://sepolia.etherscan.io/address/0xe5D0eeD29ee17135F822cB9ddCb41ea9730F97A2#code
+  https://sepolia.etherscan.io/address/0xeFfcFaD2Bd2866534ffE3624a345734dcFBcaCf5#code
