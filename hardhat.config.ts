@@ -16,9 +16,14 @@ const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
 const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL;
 
 const config: HardhatUserConfig = {
-  defaultNetwork: "hardhat",
+  defaultNetwork: "localhost",
   networks: {
-    hardhat: {},
+    hardhat: {
+      forking: {
+        // @ts-ignore
+        url: SEPOLIA_RPC_URL,
+      },
+    },
 
     sepolia: {
       url: SEPOLIA_RPC_URL,
@@ -49,6 +54,8 @@ const config: HardhatUserConfig = {
       url: "http://localhost:8545",
       chainId: 31337,
     },
+
+    // Mainnet forking
   },
   solidity: "0.8.8",
   etherscan: {
