@@ -12,6 +12,9 @@ contract TokenAContract is ERC20 {
         _;
     }
 
+    event ReceiptTokenMinted(address indexed to, uint256 indexed amount);
+    event ReceiptTokenBurned(address indexed to, uint256 indexed amount);
+
     constructor() ERC20("TokenAContract", "TAC") {
         owner = msg.sender;
 
@@ -26,6 +29,8 @@ contract TokenAContract is ERC20 {
      */
     function mintToken(address to, uint256 amount) external onlyOwner {
         _mint(to, amount);
+
+        emit ReceiptTokenMinted(to, amount);
     }
 
     /**
@@ -36,5 +41,7 @@ contract TokenAContract is ERC20 {
      */
     function burnToken(address to, uint256 amount) external onlyOwner {
         _burn(to, amount);
+
+        emit ReceiptTokenBurned(to, amount);
     }
 }
