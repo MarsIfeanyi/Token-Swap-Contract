@@ -24,3 +24,27 @@ Smart contract written in [Solidity](https://soliditylang.org/) and [Hardhat](ht
 
 - TokenSwapContractAddress:
   https://sepolia.etherscan.io/address/0x6a56F81D65f034957c9ccf86Cb74Fc7464dB47D4#code
+
+## Contributing
+
+This Project is Open for Contribution by all,
+Pull requests are welcome.
+For major changes, please open an issue first
+to discuss what you would like to change.
+
+### Instructions
+
+- Fork this repository
+- Clone your forked repository
+- Add your scripts
+- Commit and push
+- Create a pull request
+- Wait for pull request to merge
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
