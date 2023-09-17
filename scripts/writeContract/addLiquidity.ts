@@ -21,17 +21,17 @@ async function main() {
 
   // Balance Before Adding Liquidity
   console.log("\n============Balance Before Adding Liquidity================");
-  const initialBalanceTokenA = await tokenAContract.balanceOf(ownerAddress);
-  const initialBalanceTokenB = await tokenBContract.balanceOf(ownerAddress);
+  const initialBalanceTokenA = await tokenAContract.balanceOf(ownerSig);
+  const initialBalanceTokenB = await tokenBContract.balanceOf(ownerSig);
 
   console.log({
     InitialBalanceTokenA: ethers.formatEther(initialBalanceTokenA),
     InitialBalanceTokenB: ethers.formatEther(initialBalanceTokenB),
   });
 
-  const amountTokenA = ethers.parseEther("20");
-  const amountTokenB = ethers.parseEther("10");
-  const allowanceAmount = ethers.parseEther("1000");
+  const amountTokenA = ethers.parseEther("2000");
+  const amountTokenB = ethers.parseEther("1000");
+  const allowanceAmount = ethers.parseEther("100000");
 
   // APPROVALS
 
@@ -64,8 +64,8 @@ async function main() {
 
   console.log("\n==============BALANCE AFTER ADDING LIQUIDITY=========");
   // Balance After Adding Liquidity
-  const afterBalanceTokenA = await tokenAContract.balanceOf(ownerAddress);
-  const afterBalanceTokenB = await tokenBContract.balanceOf(ownerAddress);
+  const afterBalanceTokenA = await tokenAContract.balanceOf(ownerSig);
+  const afterBalanceTokenB = await tokenBContract.balanceOf(ownerSig);
   const balanceOfTokenSwapAddressOnA = await tokenAContract.balanceOf(
     TokenSwapAddress
   ); // Balance of swap contract on tokenA
