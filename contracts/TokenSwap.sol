@@ -129,14 +129,16 @@ contract TokenSwap {
         reserveB -= _amountTokenB;
 
         // Transfers the tokens Amount back to the owner
-        (bool tokenA_Success, ) = payable(tokenA_Address).call{
-            value: _amountTokenA
-        }("");
+        bool tokenA_Success = IERC20(tokenA_Address).transfer(
+            msg.sender,
+            _amountTokenA
+        );
         require(tokenA_Success, "TokenA_Liquidity: Transfer Failed");
 
-        (bool tokenB_Success, ) = payable(tokenB_Address).call{
-            value: _amountTokenB
-        }("");
+        bool tokenB_Success = IERC20(tokenB_Address).transfer(
+            msg.sender,
+            _amountTokenB
+        );
         require(tokenB_Success, "TokenB_Liquidity: Transfer Failed");
 
         emit LiquidityRemoved(_amountTokenA, _amountTokenB, msg.sender);
@@ -148,7 +150,10 @@ contract TokenSwap {
      *
      * @dev compares the token address and calls the the internal swap functions depending on the result of the comparisons and throws an error if there is no matching address
      */
-    function swapToken(address tokenAddress, uint256 _tokenAmount) external {
+    function swapToken(
+        address tokenAddress,
+        uint256 _tokenAmount
+    ) external{
         if (tokenAddress == tokenA_Address) {
             _swapTokenA_For_TokenB(_tokenAmount);
         } else if (tokenAddress == tokenB_Address) {
@@ -158,7 +163,9 @@ contract TokenSwap {
         }
     }
 
-    function _swapTokenA_For_TokenB(uint256 _amountTokenA) internal {
+    function _swapTokenA_For_TokenB(
+        uint256 _amountTokenA
+    ) internal returns (uint256) {
         require(
             IERC20(tokenA_Address).allowance(msg.sender, address(this)) >=
                 _amountTokenA,
@@ -174,7 +181,10 @@ contract TokenSwap {
 
         // The amount of TokenB, a user gets when he brings tokenA for a swap
         uint _amountTokenB = calculateRateOf_TokenA_For_TokenB(_amountTokenA);
-        (bool success, ) = tokenB_Address.call{value: _amountTokenB}("");
+        bool success = IERC20(tokenB_Address).transfer(
+            msg.sender,
+            _amountTokenB
+        );
         require(success, "TokenB Transfer Failed");
 
         emit TokenA_For_TokenB_Swapped(
@@ -182,9 +192,13 @@ contract TokenSwap {
             _amountTokenB,
             msg.sender
         );
+
+        return _amountTokenB;
     }
 
-    function _swapTokenB_For_TokenA(uint256 _amountTokenB) internal {
+    function _swapTokenB_For_TokenA(
+        uint256 _amountTokenB
+    ) internal returns (uint256) {
         require(
             IERC20(tokenB_Address).allowance(msg.sender, address(this)) >=
                 _amountTokenB,
@@ -202,7 +216,10 @@ contract TokenSwap {
             _amountTokenB
         );
 
-        (bool success, ) = tokenA_Address.call{value: _amountTokenA}("");
+        bool success = IERC20(tokenA_Address).transfer(
+            msg.sender,
+            _amountTokenA
+        );
         require(success, "TokenB Transfer Failed");
 
         emit TokenB_For_TokenA_Swapped(
@@ -210,6 +227,8 @@ contract TokenSwap {
             _amountTokenA,
             msg.sender
         );
+
+        return _amountTokenA;
     }
 
     // Calculating the ExchangeRate Using the Constant Product Market Marker(CPMM), K = X * Y, where X = reserve of TokenA  and Y =  reserve of TokenB
