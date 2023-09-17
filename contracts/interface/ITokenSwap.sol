@@ -17,7 +17,10 @@ interface ITokenSwap {
         uint256 _amountTokenB
     ) external;
 
-    function swapToken(address tokenAddress, uint256 _tokenAmount) external;
+    function swapToken(
+        address tokenAddress,
+        uint256 _tokenAmount
+    ) external returns (uint256);
 
     function getReserveA() external view returns (uint256);
 
