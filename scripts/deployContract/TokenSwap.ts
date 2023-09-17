@@ -24,7 +24,7 @@ async function main() {
   ) {
     console.log("Waiting for block confirmations...");
     // @ts-ignore
-    await tokenSwapContract.waitForDeployment(10);
+    await tokenSwapContract.waitForDeployment(20);
     await verify(tokenSwapContract.target, [TokenA_Address, TokenB_Address]);
   }
 }
