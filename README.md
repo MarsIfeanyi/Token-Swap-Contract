@@ -14,6 +14,8 @@ It has functions that allows users to:
 - Gets the Liquidity reserve of TokenB, getReserveB()
 - Gets the reserve for each liquidity Provider using their address as key in the mapping, getLiquidityProvider()
 
+Smart contract written in [Solidity](https://soliditylang.org/) and [Hardhat](https://hardhat.org/) for the contract development and [TypeScript](https://www.typescriptlang.org/) and [Ethersjs](https://docs.ethers.org/v6/) for the scripting and contract interactions.
+
 - TokenAContractAddress:
   https://sepolia.etherscan.io/token/0x8646Ae354bAfd642d1269b132685f8e05bb3401e
 
@@ -21,4 +23,4 @@ It has functions that allows users to:
   https://sepolia.etherscan.io/token/0xB6e41410b3A58062177547684073e19E8d5b5B74
 
 - TokenSwapContractAddress:
-  https://sepolia.etherscan.io/address/0xeFfcFaD2Bd2866534ffE3624a345734dcFBcaCf5#code
+  https://sepolia.etherscan.io/address/0x6a56F81D65f034957c9ccf86Cb74Fc7464dB47D4#code
