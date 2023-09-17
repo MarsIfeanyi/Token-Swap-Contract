@@ -1,4 +1,4 @@
-export const TokenSwapAddress = "0x06Cd06001b0DcDe582a2e9cef8E13D35CE45f674";
+export const TokenSwapAddress = "0x6a56F81D65f034957c9ccf86Cb74Fc7464dB47D4";
 
 export const TokenA_Address = "0x8646ae354bafd642d1269b132685f8e05bb3401e";
 
